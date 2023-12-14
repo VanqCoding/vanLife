@@ -1,0 +1,17 @@
+.footer {
+    background: #252525;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+
+    color: #AAA;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22.923px;
+    /* 163.733% */
+}
