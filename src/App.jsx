@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import Vans from './components/Vans/Vans';
 import Footer from './components/Footer/Footer';
+import "./server"
 
 function App() {
   return (
