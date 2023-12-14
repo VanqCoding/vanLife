@@ -13,9 +13,7 @@
 
 .van-tile a {
     color: #161616;
-    text-decoration: none;    
-
-    border: 2px solid red;
+    text-decoration: none;
 }
 
 .van-tile img {

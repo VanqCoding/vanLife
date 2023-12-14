@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import About from './components/About/About';
 import Vans from './components/Vans/Vans';
 import Footer from './components/Footer/Footer';
+import VanDetail from './components/Vans/VanDetail';
 import "./server"
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/vans" element={<Vans />} />
+        <Route path="/vans/:id" element={<VanDetail />} />
       </Routes>
 
       <Footer />
