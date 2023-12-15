@@ -6,25 +6,30 @@ import About from './components/About/About';
 import Vans from './components/Vans/Vans';
 import Footer from './components/Footer/Footer';
 import VanDetail from './components/Vans/VanDetail';
+import Layout from './components/Layout';
+import Host from './components/Host/Host';
+import Income from './components/Host/Income';
+import Reviews from './components/Host/Reviews';
 import "./server"
 
 function App() {
   return (
     <BrowserRouter>
 
-      <header>
-        <Link to="/" className='site-logo'>#VANLIFE</Link>
-        <nav className='navbar'>
-            <Link to="/about" className='about'>About</Link>
-            <Link to="/vans" className='vans'>Vans</Link>
-        </nav>
-      </header>
-
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetail />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/host" element={<Host />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
+
+          <Route path="/host" element={<Host />} >
+            <Route path="/host/income" element={<Income />} />
+            <Route path="/host/reviews" element={<Reviews />} />
+          </Route>
+
+        </Route>
       </Routes>
 
       <Footer />
