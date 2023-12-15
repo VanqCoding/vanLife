@@ -1,12 +1,8 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
-import './Host.css'
 
 const Host = () => {
     return (
-        <>
-            <Outlet />
-        </>
+        <h1>Dashboard goes here</h1>
     )
 }
 
