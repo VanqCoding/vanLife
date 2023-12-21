@@ -5,13 +5,13 @@ import Footer from './Footer/Footer'
 
 const Layout = () => {
     return (
-        <>
+        <div className='div-with-sticky-footer'>
             <Header />
             <main>
                 <Outlet />
             </main>
             <Footer />
-        </>
+        </div>
     )
 }
 

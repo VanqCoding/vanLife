@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
-import { useParams } from "react-router-dom"
+import { useParams, Link, useLocation } from "react-router-dom"
 
 const VanDetail = () => {
     const params = useParams()
+    const location = useLocation()
     const [van, setVan] = React.useState(null)
 
     useEffect(() => {
@@ -13,9 +14,17 @@ const VanDetail = () => {
         }
     }, [params.id])
 
+    const search = location.state?.search || ""
+    const typeFilter = location.state?.type || "all"
 
     return (
         <div className="van-detail-container">
+            <Link
+                to={`..${search}`}
+                relative="path"
+                className="back-button"
+            >&larr; <span>Back to {typeFilter} vans</span>
+            </Link>
             {van ? (
                 <div className="van-detail">
                     <img src={van.imageUrl} />
