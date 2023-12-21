@@ -1,9 +1,12 @@
 import React from 'react'
 import './Vans.css'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 const Vans = () => {
   const [vans, setVans] = React.useState([])
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const typeFilter = searchParams.get("type")
 
   React.useEffect(() => {
     fetch("/api/vans")

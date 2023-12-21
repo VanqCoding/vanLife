@@ -1,14 +1,27 @@
 .van-list-container {
+    
     padding-inline: 23px;
     margin-bottom: 50px;
+
+    /* border: 2px solid red; */
 }
 
 .van-list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 20px;
+    
     justify-items: center;
     gap: 34px;
     margin-top: 57px;
+
+    /* border: 2px solid red; */
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
 }
 
 .van-tile a {
