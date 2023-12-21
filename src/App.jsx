@@ -16,6 +16,7 @@ import HostVanPhotos from './components/Host/HostVanPhotos';
 import HostVanPricing from './components/Host/HostVanPricing';
 import HostVanInfo from './components/Host/HostVanInfo';
 import NotFound from './components/NotFound';
+import Login from './components/Login';
 
 import "./server"
 
@@ -29,6 +30,10 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VanDetail />} />
+          <Route
+            path="login"
+            element={<Login />}
+          />
           <Route path="host" element={<HostLayout />}>
 
             <Route index element={<Host />} />
