@@ -23,8 +23,11 @@ export default function Dashboard() {
                     <h3>{van.name}</h3>
                     <p>${van.price}/day</p>
                 </div>
-                <Link to={`vans/${van.id}`}>View</Link>
+                <Link to={`vans/${van.id}`} className="view-link-button" style={{ marginLeft: 'auto' }}>
+                    View
+                </Link>
             </div>
+
         ))
 
         return (
@@ -69,12 +72,12 @@ export default function Dashboard() {
                 </div>
                 {
                     loading && !vans
-                    ? <h1>Loading...</h1>
-                    : (
-                        <>
-                            {renderVanElements(vans)}
-                        </>
-                    )
+                        ? <h1>Loading...</h1>
+                        : (
+                            <>
+                                {renderVanElements(vans)}
+                            </>
+                        )
                 }
                 {/*<React.Suspense fallback={<h3>Loading...</h3>}>
                     <Await resolve={loaderData.vans}>{renderVanElements}</Await>
