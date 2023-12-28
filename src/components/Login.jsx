@@ -9,7 +9,8 @@ export default function Login() {
 
     const location = useLocation()
     const navigate = useNavigate()
-    const from = location.state?.from || "/host"
+
+    const from = location.state?.from || "/host";
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -18,7 +19,7 @@ export default function Login() {
             .then(data => {
                 setError(null)
                 localStorage.setItem("loggedin", true)
-                navigate(from, {replace: true})
+                navigate(from, { replace: true })
             })
             .catch(err => {
                 setError(err)
@@ -40,12 +41,12 @@ export default function Login() {
         <div className="login-container">
             {
                 location.state?.message &&
-                <h3 className="login-error" style={{ color: "red" }}>{location.state.message}</h3>
+                    <h3 className="login-error">{location.state.message}</h3>
             }
             <h1>Sign in to your account</h1>
             {
                 error?.message &&
-                <h3 className="login-error">{error.message}</h3>
+                    <h3 className="login-error">{error.message}</h3>
             }
 
             <form onSubmit={handleSubmit} className="login-form">

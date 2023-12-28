@@ -19,7 +19,7 @@ import NotFound from './components/NotFound';
 import Login from './components/Login';
 import AuthRequired from './AuthRequired';
 
-import "./server"
+/* import "./server" */
 
 function App() {
   return (

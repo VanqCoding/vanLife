@@ -1,21 +1,39 @@
 import React, { useEffect } from 'react'
 import { useParams, Link, useLocation } from "react-router-dom"
+import { getVan } from '../../api'
 
 const VanDetail = () => {
-    const params = useParams()
-    const location = useLocation()
     const [van, setVan] = React.useState(null)
+    const [loading, setLoading] = React.useState(false)
+    const [error, setError] = React.useState(null)
+    const { id } = useParams()
+    const location = useLocation()
 
-    useEffect(() => {
-        fetch(`/api/vans/${params.id}`)
-            .then(res => res.json())
-            .then(data => setVan(data.vans))
-        return () => {
+    React.useEffect(() => {
+        async function loadVans() {
+            setLoading(true)
+            try {
+                const data = await getVan(id)
+                setVan(data)
+            } catch (err) {
+                setError(err)
+            } finally {
+                setLoading(false)
+            }
         }
-    }, [params.id])
+        loadVans()
+    }, [id])
+
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>
+    }
 
     const search = location.state?.search || ""
-    const typeFilter = location.state?.type || "all"
+    const type = location.state?.type || "all";
 
     return (
         <div className="van-detail-container">
@@ -23,9 +41,9 @@ const VanDetail = () => {
                 to={`..${search}`}
                 relative="path"
                 className="back-button"
-            >&larr; <span>Back to {typeFilter} vans</span>
+            >&larr; <span>Back to {type} vans</span>
             </Link>
-            {van ? (
+            {van && (
                 <div className="van-detail">
                     <img src={van.imageUrl} />
                     <div className='van-detail-items'>
@@ -36,7 +54,7 @@ const VanDetail = () => {
                         <button className="link-button">Rent this van</button>
                     </div>
                 </div>
-            ) : <h2>Loading...</h2>}
+            )}
         </div>
     )
 }

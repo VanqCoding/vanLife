@@ -23,13 +23,11 @@ export default function Dashboard() {
                     <h3>{van.name}</h3>
                     <p>${van.price}/day</p>
                 </div>
-                <Link to={`vans/${van.id}`} className="view-link-button" style={{ marginLeft: 'auto' }}>
+                <Link to={`vans/${van.id}`} style={{ marginLeft: 'auto' }}>
                     View
                 </Link>
             </div>
-
         ))
-
         return (
             <div className="host-vans-list">
                 <section>{hostVansEls}</section>

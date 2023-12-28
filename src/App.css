@@ -142,7 +142,6 @@ header .login-link {
 
 .host-van-single {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: white;
   margin-bottom: 15px;
